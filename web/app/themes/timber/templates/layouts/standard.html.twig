@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+    <div id="page-title">
+        <div class="container">
+            <h1>{% block page_title %}Page Title{% endblock %}</h1>
+        </div>
+    </div>
+
+    <div id="main">
+        {% block main %}{% endblock %}
+    </div>
+
+{% endblock %}

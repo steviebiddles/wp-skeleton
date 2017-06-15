@@ -1,0 +1,76 @@
+{% extends "layouts/standard.html.twig" %}
+
+{% block page_title %}{{ post.title }}{% endblock %}
+
+{% block main %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div id="map-canvas-container" class="col-xs-12">
+                <div id="map-canvas" class="embed-responsive embed-responsive-16by9">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-9">
+                <h3>Get in Touch</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name" class="sr-only">Name</label>
+                        <input class="form-control" id="name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" class="sr-only">Subject</label>
+                        <input type="password" class="form-control" id="subject" placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="sr-only">Message</label>
+                        <textarea class="form-control" rows="3" id="message" placeholder="Your Message"></textarea>
+                    </div>
+                    <button class="btn btn-success">Submit</button>
+                </form>
+            </div>
+            <div class="col-xs-12 col-md-3">
+                <h3 class="text-right">Location</h3>
+                <address class="text-right">
+                    1 Main Street<br/>
+                    Belfast<br/>
+                    Co. Antrim<br/>
+                    BT15 1AA<br/>
+                    N. Ireland
+                </address>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts_footer %}
+    {{ parent() }}
+
+    <script>
+        function initMap() {
+            var map;
+            var myLatLng = {
+                lat: 54.597285,
+                lng: -5.93012
+            };
+
+            map = new google.maps.Map(document.getElementById('map-canvas'), {
+                zoom: 15,
+                center: myLatLng,
+                scrollwheel: false
+            });
+
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Belfast'
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXXjtJB7bj_p5zT8Do42MRqUO7zib4zxo&callback=initMap" async defer></script>
+{% endblock %}

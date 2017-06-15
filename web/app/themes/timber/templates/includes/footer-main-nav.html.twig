@@ -1,0 +1,5 @@
+{% for item in menu_items %}
+    <li id="nav-link-{{ item.id }}-footer" class="nav-item {{ item.classes | join(' ') }}">
+        <a class="nav-link" href="{{ item.get_link }}">{{ item.title }}</a>{% if loop.last == false %}/{% endif %}
+    </li>
+{% endfor %}

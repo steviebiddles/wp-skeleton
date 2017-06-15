@@ -1,0 +1,49 @@
+{% block html_head_container %}
+
+    {% include 'html-header.html.twig' %}
+    {% block head %}
+    {% endblock %}
+    </head>
+{% endblock %}
+
+<body class="{{ body_class }} {% block body_class %}{% endblock %}">
+
+    <header id="site-header">
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ site.url }}">{{ site.name }}</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        {% include 'includes/header-main-nav.html.twig' with { 'menu_items': attribute(menus, 'main').get_items } %}
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+    </header>
+
+    <div id="content" role="main">
+        {% block content %}
+            Sorry, no content.
+        {% endblock %}
+    </div>
+
+    {% block footer %}
+        <footer id="site-footer">
+            {% include 'footer.html.twig' %}
+        </footer>
+
+        {% block javascripts_footer %}
+            {{ function('wp_footer') }}
+        {% endblock %}
+    {% endblock %}
+</body>
+</html>

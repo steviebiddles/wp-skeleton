@@ -1,0 +1,15 @@
+header#site-header {
+  ul.nav {
+    li {
+      &.current-menu-item {
+        background: #000;
+
+        a {
+          &.nav-link {
+            color: $brand-success;
+          }
+        }
+      }
+    }
+  }
+}

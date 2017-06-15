@@ -1,0 +1,20 @@
+body.page-id-11 {
+  #main {
+    padding-top: 3px;
+  }
+
+  #map-canvas-container {
+    margin-bottom: $font-size-base * 2;
+    padding-left: 0;
+    padding-right: 0;
+
+    #map-canvas {
+      padding: 0;
+      height: 250px;
+
+      @media (min-width: $screen-md-min) {
+        height: 300px;
+      }
+    }
+  }
+}

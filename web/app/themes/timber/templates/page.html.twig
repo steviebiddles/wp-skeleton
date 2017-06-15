@@ -1,0 +1,28 @@
+{% extends "layouts/standard.html.twig" %}
+
+{% block page_title %}{{ post.title }}{% endblock %}
+
+{% block main %}
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-xs-12">
+
+                <article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+                    <section class="article-content">
+                        <h1 class="article-h1 sr-only">{{ post.title }}</h1>
+                        <div class="article-body">
+                            {{ post.content }}
+                        </div>
+                    </section>
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+html {
+  background: $colours-black;
+
+  body {
+    background: #fcfcfc;
+    color: #505050;
+    padding-top: 70px;
+
+    #page-title {
+      padding: $font-size-base 0 $font-size-base 0;
+
+      h1 {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    #main {
+      padding-top: $font-size-base * 2;
+    }
+  }
+}
